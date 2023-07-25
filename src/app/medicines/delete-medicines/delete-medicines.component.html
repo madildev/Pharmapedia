@@ -1,0 +1,59 @@
+<div class="p-3 d-flex align-items-center sticky top-0">
+    <button (click)="goBack()" class="bg-primary text-white rounded border-0 transition ease-in-out py-2 px-4 text-decoration-none">
+        ← Back
+    </button>
+    <h1 class="text-black text-center text-2xl flex-grow-1">Delete Medicine</h1>
+</div>
+
+<div class="d-flex w-75 align-items-center justify-content-center container-fluid">
+    <form class="w-50 d-flex flex-column gap-4 p-5 align-items-center justify-content-center">
+        <dl class="row px-2">
+            <dt class="col">
+                Name
+            </dt>
+            <dd class="col">
+                {{medicine.name}}
+            </dd>
+            <div class="w-100"></div>
+            <dt class="col">
+                Description
+            </dt>
+            <dd class="col">
+               {{medicine.description}}               
+            </dd>
+            <div class="w-100"></div>
+            <dt class="col">
+                Use
+            </dt>
+            <dd class="col">
+               {{medicine.use}}
+            </dd>
+            <div class="w-100"></div>
+            <dt class="col">
+               Category
+            </dt>
+            <dd class="col">
+                {{medicine.category!.name}}
+            </dd>
+            <div class="w-100"></div>
+            <dt class="col">
+                Created Date
+            </dt>
+            <dd class="col">
+                {{medicine.createdDate | date}}
+            </dd>
+            <div class="w-100"></div>
+            <dt class="col">
+                Updated Date
+            </dt>
+            <dd class="col">
+                {{medicine.updatedDate | date}}
+            </dd>
+            <div class="w-100"></div>
+        </dl>
+
+        <button class="d-block w-100 bg-danger text-white border-0 rounded transition ease-in-out py-2 px-4 text-center" (click)="onDelete()" >Delete</button>
+
+    </form>
+
+</div>
