@@ -1,0 +1,52 @@
+<div class="p-3 d-flex align-items-center sticky top-0">
+    <a routerLink="/categories/create" class="bg-primary text-white rounded transition ease-in-out py-2 px-4 text-decoration-none">
+        + Add New
+    </a>
+    <h1 class="text-black text-center text-2xl flex-grow-1">Categories</h1>
+</div>
+
+<form [formGroup]="searchForm" class="m-3 p-3 d-flex gap-4 align-items-center" >
+<span class="font-medium flex items-center">Search Category:</span>
+    <input type="text" id="input-ctg" formControlName="searchString" placeholder="Type Name to Search" class="px-3 py-2 border border-solid border-gray-300 rounded transition ease-in-out" />
+<button class="bg-primary text-white py-2 px-3 rounded border-0" (click) = "onSearch()" >Search</button>
+</form>
+
+<div class="m-3">
+    <table class="table text-center t" id="ctg-table">
+        <thead class="table-dark">
+            <tr>
+                <th class="px-6 py-3">
+                    <label for="name">Name</label>
+                </th>
+                <th class="px-6 py-3">
+                    <label for="createdDate">Created Date</label>
+                </th>
+                <th class="px-6 py-3">
+                    <label for="updatedDate">Updated Date</label>
+                </th>
+                <th class="px-6 py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>          
+            <tr *ngFor="let category of categories">
+                <td class="px-6 py-4">
+                    {{category.name}}
+                </td>
+
+                <td class="px-6 py-4">
+                  {{category.createdDate | date}}
+                </td>
+                <td class="px-6 py-4">
+                  {{category.updatedDate | date}}
+                </td>
+                <td class="px-6 py-4">
+                    <a [routerLink]="['/categories/edit',category.id]" >Edit</a> |
+                    <a [routerLink]="['/categories/view',category.id]">Details</a> |
+                    <a [routerLink]="['/categories/delete',category.id]">Delete</a>
+                </td>
+            </tr>
+    </tbody>
+</table>
+</div>
